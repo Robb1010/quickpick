@@ -78,6 +78,18 @@ li {
   font-weight: 900;
 }
 
+@keyframes slideOut {
+    0%   {left: 0px;}
+    100% {left: -600px;}
+}
+
+@keyframes slideIn {
+    0%   {left: -600px;}
+    100% {left: 0px;}
+}
+
+
+
 .options {
   display: flex;
   flex-direction: column;
@@ -89,6 +101,8 @@ li {
   height: 100%;
   box-shadow: 4px 4px 15px #201019;
   z-index: 0;
+  animation-name: slideIn;
+  animation-duration: 0.5s;
 }
 
 select {

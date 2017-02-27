@@ -25,26 +25,15 @@ function showHide() {
   if (status === "show") {
     body.style.overflow = "auto";
     let width = 0;
-    let animate = setInterval(function() {
-      document.getElementById("options").style.marginLeft = width + "px";
-      width -= 10;
-      if (width === -600) {
-        clearInterval(animate);
-      }
-    }, 5);
-    animate;
+    document.getElementById("options").style.animationName = "slideOut";
+    const hide = setTimeout(function() {document.getElementById("options").style.display = "none";}, 500);
+    hide;
     status = "hide";
   } else if (status === "hide") {
     body.style.overflow = "hidden";
     let width = -600;
-    let animate = setInterval(function() {
-      document.getElementById("options").style.marginLeft = width + "px";
-      width += 10;
-      if (width === 10) {
-        clearInterval(animate);
-      }
-    }, 5);
-    animate;
+    document.getElementById("options").style.animationName = "slideIn";
+    document.getElementById("options").style.display = "flex";
     status = "show";
   }
 }
