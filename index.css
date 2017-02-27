@@ -94,7 +94,7 @@ li {
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 150px;
+  top: 0;
   left: 0;
   background-color: #201019;
   width: 500px;
@@ -130,7 +130,7 @@ button {
 }
 
 .close {
-  margin: 100px 20px 80px 20px;
+  margin: 240px 20px 80px 20px;
 }
 
 .go {
