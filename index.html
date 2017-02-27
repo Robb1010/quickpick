@@ -1,0 +1,46 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Lotto numbers generator</title>
+  <meta name="description" content="Lotto numbers generator">
+  <meta name="author" content="Robert Soldan">
+
+  <link rel="stylesheet" href="index.css">
+
+</head>
+
+<body>
+  <h1>Lotto numbers generator</h1>
+  <button class="settings">Sett</button>
+  <div class="options" id="options">
+    <div>
+    <div class="opt_line">
+      <p>Total lines</p>
+      <select id="lines" onchange="random()">
+      </select>
+    </div>
+    <div class="opt_line">
+      <p>Numbers per line</p>
+      <select id="numbers" onchange="random()">
+      </select>
+    </div>
+    <div class="opt_line">
+      <p>Numbers in play</p>
+      <select id="total" onchange="random()">
+      </select>
+    </div>
+      </div>
+    <button onclick="render()">
+      Go
+    </button>
+  </div>
+  <div class="container">
+    <ul class="main" id="main">
+    </ul>
+  </div>
+  <script src="index.js"></script>
+</body>
+</html>
