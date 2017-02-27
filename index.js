@@ -1,8 +1,8 @@
 function options(min, max, def, id) {
-  for(i=min; i<=max; i++) {
+  for (i = min; i <= max; i++) {
     const select = document.getElementById(id);
     const option = document.createElement("option");
-    if(i===def) {
+    if (i === def) {
       option.selected = "selected";
     }
     option.value = i;
@@ -19,63 +19,70 @@ function settings() {
 settings();
 
 let status = "show";
+
 function showHide() {
-  const body = document.getElementsByTagName("BODY") [0];
-  if(status==="show") {
-  body.style.overflow = "auto";
-  let width = 0;
-  let animate = setInterval(function(){ document.getElementById("options").style.marginLeft = width + "px";
-                                       width-=10;
-                                       if(width===-600) {clearInterval(animate);
-                                                        }
-                                      }, 5);
+  const body = document.getElementsByTagName("BODY")[0];
+  if (status === "show") {
+    body.style.overflow = "auto";
+    let width = 0;
+    let animate = setInterval(function() {
+      document.getElementById("options").style.marginLeft = width + "px";
+      width -= 10;
+      if (width === -600) {
+        clearInterval(animate);
+      }
+    }, 5);
     animate;
     status = "hide";
-  } else if(status === "hide") {
+  } else if (status === "hide") {
     body.style.overflow = "hidden";
     let width = -600;
-    let animate = setInterval(function(){ document.getElementById("options").style.marginLeft = width + "px";
-                                       width+=10;
-                                       if(width===0) {clearInterval(animate);
-                                                        }
-                                      }, 5);
+    let animate = setInterval(function() {
+      document.getElementById("options").style.marginLeft = width + "px";
+      width += 10;
+      if (width === 10) {
+        clearInterval(animate);
+      }
+    }, 5);
     animate;
     status = "show";
   }
 }
 
 function array() {
- forty = [];
- for(i=0; i<total; i++) {
-   forty.push(i+1);
+  forty = [];
+  for (i = 0; i < total; i++) {
+    forty.push(i + 1);
   }
 }
 
 function random() {
+  showHide();
   arr = [];
   lines = parseFloat(document.getElementById("lines").value);
   numbers = parseFloat(document.getElementById("numbers").value);
   total = parseFloat(document.getElementById("total").value);
-  for(j=0; j<lines; j++) {
+  for (j = 0; j < lines; j++) {
     array();
     arr.push([]);
-    for(i=0; i<numbers; i++){
-      let val = Math.floor(Math.random()*forty.length);
+    for (i = 0; i < numbers; i++) {
+      let val = Math.floor(Math.random() * forty.length);
       arr[j].push(forty[val]);
       forty.splice(val, 1);
     }
   }
 }
 
-random();
-
-function render(){
+function render() {
+  random();
   const ul = document.getElementById("main");
   ul.innerHTML = "";
-  for (i=0; i<lines; i++) {
-    arr[i].sort(function(a,b){return a-b});
+  for (i = 0; i < lines; i++) {
+    arr[i].sort(function(a, b) {
+      return a - b
+    });
     const li = document.createElement("li");
-    for (j=0; j<arr[i].length; j++) {
+    for (j = 0; j < arr[i].length; j++) {
       const div = document.createElement("div");
       div.className = "number";
       div.appendChild(document.createTextNode(arr[i][j]));
@@ -84,8 +91,3 @@ function render(){
     ul.appendChild(li);
   }
 }
-
-
-
-render();
-

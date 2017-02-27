@@ -1,11 +1,12 @@
 <!doctype html>
 
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
 
-  <title>Lotto numbers generator</title>
-  <meta name="description" content="Lotto numbers generator">
+  <title>Quick Pick</title>
+  <meta name="description" content="Quick Pick">
   <meta name="author" content="Robert Soldan">
 
   <link rel="stylesheet" href="index.css">
@@ -13,34 +14,36 @@
 </head>
 
 <body>
-  <h1>Lotto numbers generator</h1>
-  <button class="settings">Sett</button>
+  <h1>Quick Pick</h1>
   <div class="options" id="options">
+    <button onclick="showHide()" class="close">Close</button>
     <div>
-    <div class="opt_line">
-      <p>Total lines</p>
-      <select id="lines" onchange="random()">
+      <div class="opt_line">
+        <p>Total lines</p>
+        <select id="lines">
       </select>
-    </div>
-    <div class="opt_line">
-      <p>Numbers per line</p>
-      <select id="numbers" onchange="random()">
-      </select>
-    </div>
-    <div class="opt_line">
-      <p>Numbers in play</p>
-      <select id="total" onchange="random()">
-      </select>
-    </div>
       </div>
-    <button onclick="render()">
+      <div class="opt_line">
+        <p>Numbers per line</p>
+        <select id="numbers">
+      </select>
+      </div>
+      <div class="opt_line">
+        <p>Numbers in play</p>
+        <select id="total">
+      </select>
+      </div>
+    </div>
+    <button onclick="render()" class="go">
       Go
     </button>
   </div>
   <div class="container">
+    <button class="settings" onclick="showHide()"><img src="./settings.png" alt="Settings" height="100" width="100"></button>
     <ul class="main" id="main">
     </ul>
   </div>
   <script src="index.js"></script>
 </body>
+
 </html>
